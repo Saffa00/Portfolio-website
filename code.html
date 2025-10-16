@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Code Snippets — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Peter M J Saffa</a>
+      <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="primary-navigation" class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contacts.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-resume" href="https://github.com/saffa001" target="_blank" rel="noopener">Resume</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-head">Code Snippets</h2>
+    <p class="muted">Store and manage code snippets for your portfolio. Snippets are stored locally in your browser.</p>
+
+    <div style="display:flex;gap:1rem;margin-top:1rem;align-items:flex-start">
+      <aside style="width:280px">
+        <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
+          <input id="new-filename" placeholder="filename (eg: index.html)" style="flex:1;padding:.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)" />
+          <button id="add-file" class="btn">Add</button>
+        </div>
+        <div id="files-list" style="display:flex;flex-direction:column;gap:.45rem;max-height:60vh;overflow:auto"></div>
+      </aside>
+
+      <section style="flex:1">
+        <div style="display:flex;gap:.5rem;margin-bottom:.6rem">
+          <input id="current-filename" disabled style="flex:1;padding:.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)" />
+          <button id="save-snippet" class="btn btn-outline">Save</button>
+          <button id="delete-snippet" class="btn btn-outline">Delete</button>
+          <button id="download-snippet" class="btn btn-outline">Download</button>
+        </div>
+
+        <textarea id="editor" rows="18" style="width:100%;padding:1rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:#061122;color:var(--text);font-family:monospace;font-size:.95rem;line-height:1.4"></textarea>
+
+        <div style="display:flex;gap:.5rem;margin-top:.6rem">
+          <button id="copy-all" class="btn">Copy All</button>
+          <button id="download-all" class="btn btn-outline">Download All (.zip)</button>
+          <button id="export-text" class="btn btn-outline">Export as Text</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Simple snippet manager using localStorage
+    const storageKey = 'portfolio.snippets.v1';
+    function loadSnippets(){
+      try{ return JSON.parse(localStorage.getItem(storageKey) || '{}'); }catch(e){return {}}}
+    function saveSnippets(s){ localStorage.setItem(storageKey, JSON.stringify(s)); }
+
+    const filesList = document.getElementById('files-list');
+    const editor = document.getElementById('editor');
+    const currentFilename = document.getElementById('current-filename');
+    const newFilename = document.getElementById('new-filename');
+
+    let snippets = loadSnippets();
+    let active = null;
+
+    function renderFiles(){
+      filesList.innerHTML = '';
+      const names = Object.keys(snippets).sort();
+      if(names.length===0) filesList.innerHTML = '<div class="muted">No snippets yet. Add one.</div>';
+      names.forEach(name=>{
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-outline';
+        btn.style.justifyContent = 'space-between';
+        btn.style.display = 'flex';
+        btn.textContent = name;
+        btn.addEventListener('click', ()=>{ openSnippet(name); });
+        filesList.appendChild(btn);
+      });
+    }
+
+    function openSnippet(name){
+      active = name;
+      currentFilename.value = name;
+      editor.value = snippets[name] || '';
+      editor.focus();
+    }
+
+    document.getElementById('add-file').addEventListener('click', async ()=>{
+      const name = newFilename.value.trim();
+      if(!name) return alert('Enter a filename');
+      if(snippets[name]){
+        openSnippet(name);
+        return;
+      }
+      // Try to fetch the file from the same folder (works when served over HTTP).
+      let content = '';
+      try{
+        const res = await fetch(name);
+        if(res.ok){
+          content = await res.text();
+        }
+      }catch(e){
+        // fetch may fail (eg file://) - fall back to empty
+        content = '';
+      }
+      snippets[name] = content;
+      saveSnippets(snippets);
+      renderFiles();
+      newFilename.value = '';
+      openSnippet(name);
+    });
+
+    document.getElementById('save-snippet').addEventListener('click', ()=>{
+      if(!active) return alert('No file open');
+      snippets[active] = editor.value;
+      saveSnippets(snippets);
+      alert('Saved');
+    });
+
+    document.getElementById('delete-snippet').addEventListener('click', ()=>{
+      if(!active) return alert('No file open');
+      if(!confirm('Delete ' + active + '?')) return;
+      delete snippets[active];
+      saveSnippets(snippets);
+      active = null; editor.value=''; currentFilename.value=''; renderFiles();
+    });
+
+    // Download the currently open snippet as a file using the editor contents
+    document.getElementById('download-snippet').addEventListener('click', ()=>{
+      if(!active) return alert('No file open');
+      // Use the current editor value (unsaved changes will be included)
+      const content = editor.value || '';
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = active;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('copy-all').addEventListener('click', async ()=>{
+      const all = Object.entries(snippets).map(([k,v])=>`// ${k}\n${v}`).join('\n\n');
+      try{ await navigator.clipboard.writeText(all); alert('Copied to clipboard'); }catch(e){ alert('Copy failed'); }
+    });
+
+    document.getElementById('export-text').addEventListener('click', ()=>{
+      const all = Object.entries(snippets).map(([k,v])=>`// ${k}\n${v}`).join('\n\n');
+      const blob = new Blob([all],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download='snippets.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('download-all').addEventListener('click', ()=>{
+      // Create a zip-like download by concatenating files with separators
+      const parts = Object.entries(snippets).map(([k,v])=>`--- ${k} ---\n${v}`).join('\n\n');
+      const blob = new Blob([parts],{type:'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download='all-snippets.txt'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    // initialize
+    renderFiles();
+  </script>
+</body>
+</html>

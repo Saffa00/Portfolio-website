@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Contact — Peter M J Saffa">
+	<title> Peter M J Saffa - Portfolio</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="script.js"></script>
+	<style>
+		/* small page-specific tweaks to match the screenshot layout */
+		.contacts-hero{padding:2.5rem 0}
+		.contacts-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+		.info-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:1rem;border-radius:12px;display:flex;gap:1rem;align-items:center;box-shadow:0 12px 30px rgba(2,6,23,0.55)}
+		.info-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#052033;font-weight:800}
+		.info-body{flex:1}
+		.info-title{font-weight:800;margin:0;color:var(--accent)}
+		.info-sub{color:var(--muted);font-size:.95rem}
+		.contact-panel{background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));padding:1rem;border-radius:12px}
+		.send-row{display:flex;align-items:center;gap:.75rem;margin-top:.5rem}
+		.send-row .btn{flex:1}
+		.social-row{display:flex;gap:.6rem;align-items:center;margin-top:1rem}
+		@media (max-width:760px){
+			.contacts-grid{grid-template-columns:1fr;}
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header" role="banner">
+		<div class="container header-inner">
+			<a class="logo" href="index.html">Peter M J Saffa</a>
+			<button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="hamburger"></span>
+			</button>
+				<nav id="primary-navigation" class="site-nav" role="navigation">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="projects.html">Projects</a></li>
+						<li><a href="skills.html">Skills</a></li>
+						<li><a href="testimonials.html">Testimonials</a></li>
+						<li><a href="contacts.html">Contact</a></li>
+					</ul>
+				</nav>
+				<a class="btn btn-resume" href="https://github.com/saffa001" target="_blank" rel="noopener">Resume</a>
+				<button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">319</button>
+		</div>
+	</header>
+
+	<main>
+		<section class="contacts-hero container">
+			<h2 class="section-head">Contact Information</h2>
+			<div class="contacts-grid" style="margin-top:1rem">
+				<!-- Left column: contact cards -->
+				<div class="left-col">
+					<div class="info-card reveal">
+						<div class="info-icon" style="background:linear-gradient(90deg,#6366f1,#8b5cf6);">📍</div>
+						<div class="info-body">
+							<div class="info-title">Location</div>
+							<div class="info-sub">15 Diamei Road Goderich Freetown, Sierra leone</div>
+						</div>
+					</div>
+
+					<div class="info-card reveal" style="margin-top:1rem">
+						<div class="info-icon" style="background:linear-gradient(90deg,#06b6d4,#0ea5e9);">✉️</div>
+						<div class="info-body">
+							<div class="info-title">Email</div>
+							<div class="info-sub">saffapetermj@gmail.com</div>
+						</div>
+					</div>
+
+					<div class="info-card reveal" style="margin-top:1rem">
+						<div class="info-icon" style="background:linear-gradient(90deg,#fb7185,#f97316);">📞</div>
+						<div class="info-body">
+							<div class="info-title">Phone</div>
+							<div class="info-sub">+232 30 231 858</div>
+						</div>
+					</div>
+
+					<div class="info-card reveal" style="margin-top:1rem">
+						<div class="info-icon" style="background:linear-gradient(90deg,#f97316,#ef4444);">🌐</div>
+						<div class="info-body">
+							<div class="info-title">Website</div>
+							<div class="info-sub">https://saffa001.github.io/</div>
+						</div>
+					</div>
+
+					<div class="social-row reveal">
+						<!-- WhatsApp: opens a chat to the phone number in international format -->
+						<a href="https://wa.me/23230231858" aria-label="Whatsapp" class="btn btn-outline" target="_blank" rel="noopener">Whatsapp</a>
+						<!-- LinkedIn: replace with your real profile URL -->
+						<a href="https://www.linkedin.com/in/your-profile" aria-label="LinkedIn" class="btn btn-outline" target="_blank" rel="noopener">LinkedIn</a>
+						<!-- Instagram: replace with your real handle -->
+						<a href="https://www.instagram.com/Peter M J Saffa" aria-label="Instagram" class="btn btn-outline" target="_blank" rel="noopener">Instagram</a>
+					</div>
+				</div>
+
+				<!-- Right column: contact form -->
+				<div class="right-col">
+					<div class="contact-panel reveal">
+						<h3 style="margin:0 0 .6rem">Send Me a Message</h3>
+						<form id="contact-form">
+							<div class="contact-form">
+								<div>
+									<label for="name">Your Name</label>
+									<input id="name" name="name" type="text" placeholder="Your Name" required />
+								</div>
+								<div>
+									<label for="email">Your Email</label>
+									<input id="email" name="email" type="email" placeholder="Your Email" required />
+								</div>
+								<div class="field-row">
+									<label for="subject">Subject</label>
+									<input id="subject" name="subject" type="text" placeholder="Subject" />
+								</div>
+								<div class="field-row">
+									<label for="message">Your Message</label>
+									<textarea id="message" name="message" rows="6" placeholder="Your Message"></textarea>
+								</div>
+							</div>
+							<div class="send-row">
+								<button type="submit" class="btn">✈️ Send Message</button>
+							</div>
+						</form>
+						<p class="note">I'll usually respond within 1-2 business days.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	
+	</main>
+</body>
+</html>

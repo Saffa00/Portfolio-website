@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="description" content="Peter M J Saffa — Web developer. Portfolio showcasing projects in web and mobile development.">
+	<title>Peter M J Saffa — Portfolio</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="script.js"></script>
+</head>
+<body class="projects-page">
+	<header class="site-header" role="banner">
+		<div class="container header-inner">
+			<a class="logo" href="index.html">Peter M J Saffa</a>
+			<button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="hamburger"></span>
+			</button>
+			<nav id="primary-navigation" class="site-nav" role="navigation">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="projects.html" aria-current="page">Projects</a></li>
+					<li><a href="skills.html">Skills</a></li>
+					<li><a href="testimonials.html">Testimonials</a></li>
+					<li><a href="contacts.html">Contact</a></li>
+				</ul>
+			</nav>
+			<a class="btn btn-resume" href="https://github.com/saffa001" target="_blank" rel="noopener">Resume</a>
+			<button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+		</div>
+	</header>
+
+	<main class="container projects-hero">
+		<section class="section-head">
+			<h2 class="reveal">My Projects</h2>
+			<p class="muted">A selection of recent work — hover cards to see quick actions.</p>
+		</section>
+
+		<section class="projects-grid reveal" style="margin-top:1.25rem">
+			<!-- Card 1 -->
+					<article class="project-card">
+						<div class="project-media" style="background:linear-gradient(90deg,var(--accent),var(--accent-2));">
+							<span class="project-flag flag--new">New</span>
+							<!-- Thumbnail placeholder -->
+							<div class="image-placeholder" aria-hidden="true">Image placeholder</div>
+							<img class="project-thumb" src="SUB/portfolio.png" alt="Portfolio screenshot" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" />
+							<svg class="thumb-svg" viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="project thumbnail">
+								<defs>
+									<linearGradient id="g1" x1="0" x2="1">
+										<stop offset="0" stop-color="#ffffff" stop-opacity="0.06"/>
+										<stop offset="1" stop-color="#ffffff" stop-opacity="0.02"/>
+									</linearGradient>
+								</defs>
+								<rect width="100" height="60" fill="url(#g1)" />
+								<g fill="rgba(255,255,255,0.06)">
+									<rect x="6" y="10" width="30" height="12" rx="2" />
+									<rect x="6" y="26" width="80" height="8" rx="2" />
+									<rect x="6" y="36" width="60" height="8" rx="2" />
+								</g>
+							</svg>
+						</div>
+				<div class="project-body">
+					<h3>Portfolio by Peter</h3>
+					<p class="muted">An intelligent AI-powered chatbot designed to interact naturally with users using modern NLU and custom skills.</p>
+					<div class="tags">
+
+						<span class="pill pill--html">html</span>
+						<span class="pill pill--css">CSS</span>
+						<span class="pill pill--js">JavaScript</span>
+						<span class="pill pill--gemini">Gemini API</span>
+					</div>
+					<div class="project-actions" style="margin-top:0.9rem;display:flex;gap:.6rem;align-items:center">
+						<a class="btn btn-demo" href="#">Demo</a>
+						<a class="btn btn-outline btn-code" href="code.html">Code</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Card 2 -->
+					<article class="project-card">
+						<div class="project-media" style="background:linear-gradient(90deg,#a7f3d0,#60a5fa);">
+							<span class="project-flag flag--site">Website</span>
+							<div class="image-placeholder" aria-hidden="true">Image placeholder</div>
+                            <img class="project-thumb" src="SUB/LAN.png" alt="Project screenshot" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" />
+							<svg class="thumb-svg" viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="project thumbnail">
+								<rect width="100" height="60" fill="rgba(255,255,255,0.03)" />
+								<circle cx="20" cy="22" r="8" fill="rgba(255,255,255,0.06)" />
+								<rect x="36" y="12" width="56" height="10" rx="2" fill="rgba(255,255,255,0.06)" />
+								<rect x="36" y="26" width="40" height="8" rx="2" fill="rgba(255,255,255,0.04)" />
+							</svg>
+						</div>
+				<div class="project-body">
+					<h3>Petus betting company</h3>
+					<p class="muted">Outcome-Based Education curriculum information system to support course & assessment planning.</p>
+					<div class="tags">
+						<span class="pill pill--js">JavaScript</span>
+						<span class="pill pill--css">css</span>
+						<span class="pill pill--flutter">Flutter</span>
+						<span class="pill pill--html">Html</span>
+					</div>
+					<div class="project-actions" style="margin-top:0.9rem;display:flex;gap:.6rem;align-items:center">
+						<a class="btn btn-demo" href="#">Demo</a>
+						<a class="btn btn-outline btn-code" href="code.html">Code</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Card 3 -->
+					<article class="project-card">
+						<div class="project-media" style="background:linear-gradient(90deg,#c7b3ff,#60a5fa);">
+							<span class="project-flag flag--net">Network</span>
+							<div class="image-placeholder" aria-hidden="true">Image placeholder</div>
+							<img class="project-thumb" src="SUB/LAN.png" alt="Project screenshot" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" />
+							<svg class="thumb-svg" viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="project thumbnail">
+								<rect width="100" height="60" fill="rgba(255,255,255,0.03)" />
+								<g fill="rgba(255,255,255,0.05)">
+									<rect x="10" y="10" width="18" height="18" rx="3" />
+									<rect x="38" y="10" width="18" height="18" rx="3" />
+									<rect x="66" y="10" width="18" height="18" rx="3" />
+								</g>
+								<path d="M19 28 L50 42 L81 28" stroke="rgba(255,255,255,0.04)" stroke-width="1.2" fill="none"/>
+							</svg>
+						</div>
+				<div class="project-body">
+					<h3></h3>
+					<p class="muted">A scaled LAN design focused on routing, VLANs and subnetting to optimize corporate network performance.</p>
+					<div class="tags">
+						<span class="pill pill--cisco">Cisco</span>
+						<span class="pill pill--vlan">VLAN</span>
+						<span class="pill pill--subnet">Subnetting</span>
+						<span class="pill pill--simulation">Simulation</span>
+					</div>
+					<div class="project-actions" style="margin-top:0.9rem;display:flex;gap:.6rem;align-items:center">
+						<a class="btn btn-demo" href="#">Demo</a>
+						<a class="btn btn-outline btn-code" href="code.html">Code</a>
+						<a class="btn btn-outline" href="#">File</a>
+					</div>
+				</div>
+			</article>
+
+			<!-- Card 4 -->
+					<article class="project-card">
+						<div class="project-media" style="background:linear-gradient(90deg,#fca5a5,#7dd3fc);">
+							<span class="project-flag flag--game">Game</span>
+							<div class="image-placeholder" aria-hidden="true">Image placeholder</div>
+                            <img class="project-thumb" src="SUB/LAN.png" alt="Project screenshot" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" />
+							<svg class="thumb-svg" viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="project thumbnail">
+								<rect width="100" height="60" fill="rgba(255,255,255,0.03)" />
+								<g fill="rgba(255,255,255,0.06)">
+									<rect x="14" y="14" width="72" height="32" rx="6" />
+								</g>
+								<g fill="rgba(255,255,255,0.04)">
+									<circle cx="32" cy="30" r="4" />
+									<rect x="44" y="26" width="18" height="8" rx="2" />
+								</g>
+							</svg>
+						</div>
+				<div class="project-body">
+					<h3>Snakes And Ladders Game</h3>
+					<p class="muted">Web-based Snakes and Ladders built with HTML, CSS and JavaScript. Smooth animations and responsive UI.</p>
+					<div class="tags">
+						<span class="pill pill--html">html</span>
+						<span class="pill pill--css">CSS</span>
+						<span class="pill pill--js">JavaScript</span>
+					</div>
+					<div class="project-actions" style="margin-top:0.9rem;display:flex;gap:.6rem;align-items:center">
+						<a class="btn btn-demo" href="#">Demo</a>
+						<a class="btn btn-outline btn-code" href="code.html">Code</a>
+					</div>
+				</div>
+			</article>
+
+		</section>
+	</main>
+
+</body>
+</html>
