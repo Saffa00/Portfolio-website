@@ -1,115 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peter M J Saffa | Portfolio</title>
-
-  <!-- External stylesheet -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- FontAwesome icons (optional, for social links) -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Peter M J Saffa — Web developer. Portfolio showcasing projects in web and mobile development.">
+    <title>Peter M J Saffa — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
-
 <body>
-  <!-- Header -->
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <div class="logo">
-        <a href="#">Peter<span>MJ</span></a>
-      </div>
-
-      <button class="nav-toggle" aria-label="toggle navigation" aria-expanded="false">
-        ☰
-      </button>
-
-      <nav class="site-nav" id="primary-navigation" role="navigation">
-        <ul class="nav-list">
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-buttons">
-        <a href="resume.pdf" class="btn-resume">Resume</a>
-        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero" role="region" aria-label="Introduction">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h1 class="hero-title">Hi, I’m <span>Peter M J Saffa</span></h1>
-        <p class="lead">A Passionate Web Developer & Designer crafting digital experiences that inspire.</p>
-
-        <div class="social-links">
-          <a href="https://github.com/Saffa00" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a class="logo" href="index.html"><span class="logo-text">Peter M J Saffa</span></a>
+            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+                <nav id="primary-navigation" class="site-nav" role="navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="contacts.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <a class="btn btn-resume" href="https://github.com/saffa001" target="_blank" rel="noopener">Resume</a>
+                <!-- Theme toggle -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
         </div>
+    </header>
 
-        <a href="#projects" class="btn-primary">View My Work</a>
-      </div>
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <p class="eyebrow">Hi, my name is</p>
+                    <h1 class="hero-title">Peter M J <span class="accent">Saffa</span></h1>
+                    <p class="lead">I build fast, accessible and delightful web & mobile experiences. I focus on clean UI, pragmatic engineering and measurable results.</p>
+                    <p class="hero-ctas">
+                        <a class="btn" href="projects.html">View projects</a>
+                        <a class="btn btn-outline" href="contacts.html">Contact me</a>
+                    </p>
+                    <!-- Social / contact icons -->
+                    <div class="social-row" aria-label="Social links">
+                        <a class="social-link" href="https://github.com/saffa001" target="_blank" rel="noopener" aria-label="GitHub">
+                            <!-- GitHub SVG -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 .5C5.73.5.75 5.48.75 11.76c0 4.95 3.2 9.15 7.64 10.63.56.1.76-.24.76-.54 0-.27-.01-1.16-.02-2.1-3.11.68-3.77-1.5-3.77-1.5-.51-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.69 2.6 1.2 3.24.92.1-.72.39-1.2.71-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.41.11-2.94 0 0 .95-.3 3.12 1.15a10.7 10.7 0 0 1 2.84-.38c.96.01 1.93.13 2.84.38 2.17-1.45 3.12-1.15 3.12-1.15.61 1.53.23 2.66.11 2.94.72.78 1.16 1.78 1.16 3 0 4.29-2.62 5.24-5.11 5.52.4.35.75 1.05.75 2.12 0 1.53-.01 2.77-.01 3.15 0 .3.2.65.77.54C19.05 20.9 22.25 16.7 22.25 11.76 22.25 5.48 17.27.5 12 .5z" fill="currentColor"/>
+                            </svg>
+                        </a>
 
-      <div class="hero-media">
-        <img src="assets/profile.svg" alt="Peter's profile illustration" />
-      </div>
-    </div>
-  </section>
+                        <a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <!-- LinkedIn SVG -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M4.98 3.5a2.3 2.3 0 1 1 0 4.6 2.3 2.3 0 0 1 0-4.6zM3 9h4v12H3zM9 9h3.8v1.6h.1c.5-.9 1.8-1.8 3.6-1.8 3.8 0 4.5 2.5 4.5 5.7V21H19v-5.1c0-1.2 0-2.7-1.6-2.7-1.6 0-1.9 1.3-1.9 2.6V21H9z" fill="currentColor"/>
+                            </svg>
+                        </a>
 
-  <!-- About Section -->
-  <section id="about" class="about" role="region" aria-label="About Me">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>
-        I’m a web developer focused on creating modern, responsive, and user-friendly websites. 
-        I love learning new technologies and designing creative digital solutions.
-      </p>
-    </div>
-  </section>
+                        <a class="social-link" href="mailto:saffapetermj@gmail.com" aria-label="Email">
+                            <!-- Email SVG -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-media">
+                    <div class="avatar-wrap">
+                        <svg class="avatar" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Code Icon Illustration">
+                            <defs>
+                                <linearGradient id="neon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                                    <feMerge>
+                                        <feMergeNode in="blur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <rect width="100" height="100" rx="10" fill="#021022"/>
+                            <path d="M 30 20 L 10 50 L 30 80 M 70 20 L 90 50 L 70 80"
+                                  fill="none"
+                                  stroke="url(#neon-gradient)"
+                                  stroke-width="5"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  filter="url(#glow)"/>
+                        </svg>
+                        <!-- Badge / circular image placeholder positioned bottom-right of avatar -->
+                        <div class="avatar-badge reveal" aria-hidden="true">
+                            <img class="badge-img" src="peter.jpg" alt="Peter" />
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects" role="region" aria-label="My Projects">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="project-grid">
-        <article class="project">
-          <h3>Portfolio Website</h3>
-          <p>My personal portfolio showcasing my work and skills.</p>
-          <a href="https://saffa00.github.io/Portfolio-website/" target="_blank" class="btn-secondary">Live Demo</a>
-        </article>
+        
 
-        <article class="project">
-          <h3>Restaurant Website</h3>
-          <p>A multi-page responsive website for a fast-food restaurant.</p>
-          <a href="#" class="btn-secondary">View Project</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact" role="region" aria-label="Contact Me">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Have a project or collaboration in mind? Let’s talk!</p>
-      <a href="mailto:peter.saffa@example.com" class="btn-primary">Email Me</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <p>&copy; 2025 Peter M J Saffa. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <!-- External JavaScript -->
-  <script src="script.js"></script>
 </body>
+
 </html>
